@@ -1,0 +1,144 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.modal-xl {
+    width: 1200px;
+}
+
+.modal-xxl {
+    width: 1500px;
+}
+
+.modal-l {
+    width: 1000px;
+}
+
+.modal-m {
+    width: 500px;
+}
+
+.modal-md {
+    width: 400px;
+}
+
+.modal-s {
+    width: 250px;
+}
+
+.modal{
+    overflow-y:auto !important;
+    max-height:90% !important;
+}
+
+/*modal속의 select 가 전체 표시되게끔*/
+.modal-body {
+overflow: visible;
+}
+
+.class-of-dropdown {
+    position: relative;
+    z-index: 5000;
+}
+.modal-header {
+  clear: both;
+  padding:10px;
+}
+
+.modal-body {
+    overflow-y:visible;
+    padding:10px;
+    clear: both;
+}
+/*modal속의 select 가 전체 표시되게끔*/
+.modal-footer {
+    margin-top:5px;clear: both;
+    padding:10px;
+    margin-bottom:0px;
+}
+
+
+.bingo_no{
+    width:20%;
+    height:60px;
+    border: 1px solid #c0c0c0;
+    float: left;
+    background-color:springgreen;
+    text-align:center;
+    line-height: 60px;
+    font-size:30px; 
+}
+.selected{
+    background-color:blue;
+}
+.new_row{
+    clear:both;
+}
+
+.selected{
+    background-color:blue;
+    color:white;
+}
+.not_selected{
+    background-color:aliceblue;
+    color:black;
+}
+
+.hand{
+    cursor:pointer;
+    background-color:aqua;
+
+}
+.hand:hover{
+    color: #fff;
+    text-shadow: -1px 1px 5px #03c, 1px -1px 5px #03c;
+}
+
+@media (min-width: 350px) {
+  .bingo_no{
+    height:80px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 500px) {
+  .bingo_no{
+    height:110px;
+    line-height: 110px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bingo_no{
+    height:130px;
+    line-height: 130px;
+  }
+}
+@media (min-width: 992px) {
+  .bingo_no{
+    height:110px;
+    line-height: 110px;
+  }
+}
+@media (min-width: 1200px) {
+  .bingo_no{
+    height:130px;
+    line-height: 130px;
+  }
+}
+
+

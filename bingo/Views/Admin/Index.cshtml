@@ -1,0 +1,106 @@
+﻿@model List<bingo.Models.ChatModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="container" style="display:none;">
+    <input type="hidden" id="slackID" value="@Session[bingo.Common.Const.LOGIN_USER]" />
+    <div class="row">
+        <div id="bingo_area" class="col-md-6">
+            <div id="user_name">
+                @{
+                    if (Session[bingo.Common.Const.LOGIN_USER] != null)
+                    {
+                        @(Session[bingo.Common.Const.LOGIN_USER]) <text>님 안녕하세요!!!</text>
+                    }
+                }
+            </div>
+            <div id="bingo_board">
+                <div id="bingo_number">
+
+                </div>
+                <div>
+                    <button type="button" class="btn btn-danger btn-sm" id="getBingoshuffle">SHUFFLE</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chat_area" class="col-md-4">
+            <form>
+                <input type="text" class="form-control" id="message" />
+                <button type="button" class="btn btn-danger btn-sm" id="sendmessage">Send</button>
+            </form>
+            <div style="height: 300px; overflow: auto">
+                <ul id="discussion">
+                    @foreach (var item in Model)
+                    {
+                        <li>@Convert.ToDateTime(item.SendTime).ToString("hh:mm")<text></text>@item.SlackID <text>:</text>@item.Message</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div id="user_area" class="col-md-2">
+            <div id="function_ist">
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">Function List</div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <button type="button" class="list-group-item list-group-item-danger" id="reset_chat">Chat Clear</button>
+                            <button type="button" class="list-group-item list-group-item-danger" id="reset">RESET</button>
+                            <button type="button" class="list-group-item list-group-item-danger" id="start">START</button>
+                            <button type="button" class="list-group-item list-group-item-success" id="userList">USER LIST</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="user_list">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Member List</div>
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade fit-modal fit-modal_name" id="ajaxNameArea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header f_c">
+                <div class="f_l">
+                    <h4 id="modal_title">please register your slack ID</h4>
+                </div>
+                <div class="f_l modal_message_first">
+                </div>
+                <div class="f_r">
+
+                </div>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="control-label" for="slackHdnID">Slack ID</label>
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" id="slackHdnID" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="f_l">
+
+                    </div>
+                    <div class="f_r">
+                        <button type="button" class="btn btn-primary" id="btn-name-save">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/sites_admin")
+}
